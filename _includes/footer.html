@@ -1,57 +1,37 @@
-<div id="footer">
+<div id="footer" class="panel">
   <div class="panel-footer">
     <div class="container-fluid">
       <div class="row">
 
-        <!-- Affiliations -->
-        <div class="col-sm-5">
-          <p>Affiliations</p>
-
-          <div class="footer-logos">
-
-            <img class="no-border ubc-logo ubc-logo-light" src="{{ site.baseurl }}/images/logo/ubc-logo-1_blue.png"
-              alt="University of British Columbia Logo">
-
-            <img class="no-border ubc-logo ubc-logo-dark" src="{{ site.baseurl }}/images/logo/ubc-logo-1_white.png"
-              alt="University of British Columbia Logo">
-
-            <img class="no-border footer-mohseni-logo" src="{{ site.baseurl }}/images/logo/mohseni_logo.png"
-              alt="Mohseni Institute for Urologic Sciences Logo">
-
+        <!-- Lab Logos -->
+        <div class="col-sm-4">
+          <p>Affiliatons</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+            <img class = "no-border" src="{{ site.baseurl }}/images/logo/ubc-logo-1_clear.png" alt="UBC Logo" style="width: 180px; height: auto; ">
+            <img class = "no-border" src="{{ site.baseurl }}/images/logo/mohseni_logo.png" alt="Vancouver Prostate Centre Logo" style="width: 180px; height: auto;">
           </div>
         </div>
 
-        <!-- Quick Links -->
+        <!-- Useful Links -->
         <div class="col-sm-4">
-          <p>Quick Links</p>
-
+          <p>Links</p>
           <ul class="list-unstyled">
-            <li>
-              <a href="{{ site.baseurl }}/contact/">Contact</a>
-            </li>
-            <li>
-              <a href="{{ site.baseurl }}/join-us/">Join Us</a>
-            </li>
-            <li>
-              <a href="https://github.com/GibbLab-UBC" target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-            </li>
+            <li><a href="https://github.com/GibbLab-UBC">Github</a></li>
+            <li><a href="https://www.ubc.ca/" target="_blank">UBC</a></li>
+            <li><a href="https://www.prostatecentre.com/about-us/people/dr-ewan-gibb" target="_blank">VPC</a></li>
+            <li><a href="https://www.vchri.ca/our-research/research-centres-and-programs/m-h-mohseni-institute-urologic-sciences" target="_blank">Mohseni Institute</a></li>
           </ul>
         </div>
 
-        <!-- Lab -->
-        <div class="col-sm-3">
-          <p>Gibb Lab</p>
-
-          <p class="footer-lab-text">
-            Vancouver Prostate Centre<br>
-            University of British Columbia
-          </p>
-
-          <p class="footer-copyright">
-            &copy; {{ site.time | date: "%Y" }} Gibb Lab
-          </p>
+        <!-- Contact Info -->
+        <div class="col-sm-4">
+          <p>Contact</p>
+          <address>
+            Robert H.N. Ho Research Centre<br>
+            2635 Laurel St,
+            Vancouver, BC V6H 3Z6<br>_<br>
+			<a href="mailto:ubcgibblab@gmail.com">ubcgibblab@gmail.com</a>
+          </address>
         </div>
 
       </div>
