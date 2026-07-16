@@ -6,63 +6,199 @@ sitemap: false
 permalink: /team/
 ---
 
-<h1>{{ page.title }}</h1>
-<hr style="border: none; height: 2px; background-color: #ccc; margin: 20px 0;">
+<div class="page-hero">
+  <h1 class="page-hero__title">Team</h1>
+  <span class="page-hero__divider"></span>
+</div>
 
-<div class="container-fluid">
-  <div class="row">
+<!-- ================= PRINCIPAL INVESTIGATOR SECTION ================= -->
 
-    <!-- Staff Column -->
-    <div class="col-md-6">
-      <h2><a id="staff"></a>Staff</h2>
-      {% assign staff_members = site.posts | where: 'category', 'staff' | sort: 'date' %}
-      {% for member in staff_members %}
-        <div class="card team-member-card mb-3 p-2">
-          <div class="d-flex">
-            <img src="{{ site.baseurl }}/images/team/{{ member.image }}"
-                 alt="{{ member.title }}"
-                 class="img-thumbnail me-3"
-                 style="width: 100px; height: auto; filter: grayscale(1%);">
-            <div>
-              <h4 class="mb-1">{{ member.title }}</h4>
-              <p class="mb-0">{{ member.role }}</p>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
+<h2 class="section-title">Principal Investigator</h2>
+
+{% assign all_posts = site.posts | sort: 'date' %}
+
+{% for member in all_posts %}
+{% if member.category == 'staff' %}
+{% if member.role contains "Principal Investigator" or member.role contains "PI" %}
+
+<div class="pi-layout-card">
+
+  <div class="pi-image-frame">
+    <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill">
+
+    <div class="name-gradient-overlay">
+      <h3 class="overlay-title-name">{{ member.title }}</h3>
     </div>
+  </div>
 
-    <!-- Students Column -->
-    <div class="col-md-6">
-      <h2><a id="student"></a>Students</h2>
-      {% assign student_members = site.posts | where: 'category', 'student' | sort: 'date' %}
-      {% for member in student_members %}
-        <div class="card team-member-card mb-3 p-2">
-          <div class="d-flex">
-            <img src="{{ site.baseurl }}/images/team/{{ member.image }}"
-                 alt="{{ member.title }}"
-                 class="img-thumbnail me-3"
-                 style="width: 100px; height: auto; filter: grayscale(1%);">
-            <div>
-              <h4 class="mb-1">{{ member.title }}</h4>
-              <p class="mb-0">{{ member.role }}</p>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
+  <div class="pi-content-side">
+
+    {% if member.description %}
+    <div class="detail-text-left">
+      {{ member.description | newline_to_br }}
     </div>
+    {% endif %}
 
   </div>
+
 </div>
 
-<div class = "container-fluid">
-  <h2>Alumni</h2>
-  <ul>
-    <li>Rachel Weng, 2025</li>
-    <li>Pauline De Almeida, 2025</li>
-  </ul>
+{% endif %}
+{% endif %}
+{% endfor %}
+
+
+<!-- ================= CURRENT MEMBERS SECTION ================= -->
+
+<h2 class="section-title">Current Members</h2>
+
+<div class="unified-team-grid">
+
+  <!-- ================= NON-PI STAFF ================= -->
+
+  {% assign staff_members = site.posts
+  | where: "category", "staff"
+  | sort: "join_date"
+  %}
+
+  {% for member in staff_members %}
+  {% unless member.role contains "Princ" or member.role contains "PI" %}
+
+  <div class="member-card">
+
+    <div class="member-image-frame">
+      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill">
+
+      <div class="name-gradient-overlay">
+        <h3 class="overlay-title-name">{{ member.title }}</h3>
+      </div>
+    </div>
+
+    {% if member.role %}
+    <p class="role-subtitle member-role-label">
+      {{ member.role }}
+    </p>
+    {% endif %}
+
+    {% if member.description %}
+    <div class="meta-label-left member-role-label">
+      Research Interest
+    </div>
+
+    <p class="detail-text-left member-bio-text">
+      {{ member.description }}
+    </p>
+    {% endif %}
+
+    {% if member.joined %}
+    <div class="meta-label-left member-role-label">
+      Joined the Lab
+    </div>
+
+    <p class="detail-text-left member-bio-text">
+      {{ member.joined }}
+    </p>
+    {% endif %}
+
+  </div>
+
+  {% endunless %}
+  {% endfor %}
+
+
+  <!-- ================= STUDENTS ================= -->
+  <!-- Ordered by join date: longest-standing members first -->
+
+  {% assign student_members = site.posts
+  | where: "category", "student"
+  | sort: "join_date"
+  %}
+
+  {% for member in student_members %}
+
+  <div class="member-card">
+
+    <div class="member-image-frame">
+      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill">
+
+      <div class="name-gradient-overlay">
+        <h3 class="overlay-title-name">{{ member.title }}</h3>
+      </div>
+    </div>
+
+    {% if member.role %}
+    <p class="role-subtitle member-role-label">
+      {{ member.role }}
+    </p>
+    {% endif %}
+
+    {% if member.joined %}
+    <p class="member-duration">
+      {{ member.joined }}
+    </p>
+    {% endif %}
+
+    {% if member.description %}
+    <div class="meta-label-left member-role-label">
+      Bio
+    </div>
+
+    <p class="detail-text-left member-bio-text">
+      {{ member.description }}
+    </p>
+    {% endif %}
+
+  </div>
+
+  {% endfor %}
+
 </div>
 
-<hr>
 
+<!-- ================= ALUMNI SECTION ================= -->
 
+<h2 class="section-title">Lab Alumni</h2>
+
+<div class="unified-team-grid">
+
+  {% for member in all_posts %}
+  {% if member.category == 'alumni' %}
+
+  <div class="member-card">
+
+    <div class="member-image-frame">
+      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill">
+
+      <div class="name-gradient-overlay">
+        <h3 class="overlay-title-name">{{ member.title }}</h3>
+      </div>
+    </div>
+
+    {% if member.role %}
+    <p class="role-subtitle member-role-label">
+      {{ member.role }}
+    </p>
+    {% endif %}
+
+    {% if member.joined %}
+    <p class="member-duration">
+      {{ member.joined }}
+    </p>
+    {% endif %}
+
+    {% if member.description %}
+    <div class="meta-label-left member-role-label">
+      Bio
+    </div>
+
+    <p class="detail-text-left member-bio-text">
+      {{ member.description }}
+    </p>
+    {% endif %}
+
+  </div>
+
+  {% endif %}
+  {% endfor %}
+
+</div>
