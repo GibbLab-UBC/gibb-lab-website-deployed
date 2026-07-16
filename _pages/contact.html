@@ -1,0 +1,148 @@
+---
+title: "Contact"
+layout: default
+excerpt: "Contact the Gibb Lab"
+sitemap: false
+permalink: /contact/
+---
+
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    align-items: stretch;
+  }
+
+  /* Map */
+  .mapouter {
+    position: relative;
+    width: 100%;
+    min-height: 460px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+
+  .gmap_canvas {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: none !important;
+  }
+
+  .gmap_iframe {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 460px;
+    border: 0;
+  }
+
+  /* Right-side information */
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .contact-details h3 {
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .contact-details p {
+    margin: 0;
+  }
+
+  .contact-address {
+    line-height: 1.8;
+  }
+
+  @media (min-width: 768px) {
+    .contact-layout {
+      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+
+    .mapouter,
+    .gmap_iframe {
+      min-height: 350px;
+    }
+
+    .contact-details {
+      gap: 1.75rem;
+    }
+  }
+</style>
+
+<div class="page-hero">
+  <h1 class="page-hero__title">Contact</h1>
+  <span class="page-hero__divider"></span>
+</div>
+
+<div class="research-section">
+
+  <p>
+    We're always happy to connect with researchers, collaborators, and others interested in our work. Whether you have
+    questions about our research, are interested in potential collaborations, or simply want to learn more about the
+    Gibb Lab, we'd be glad to hear from you.
+  </p>
+
+  <div class="contact-layout">
+
+    <!-- Left: Google Map -->
+    <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+          src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=2635%20Laurel%20Street&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          title="Map showing 2635 Laurel Street"></iframe>
+      </div>
+    </div>
+
+    <!-- Right: Contact Information -->
+    <div class="contact-details">
+
+      <div>
+        <h3>Get in Touch</h3>
+
+        <p>
+          <strong>Email</strong><br>
+          <a href="mailto:ubcgibblab@gmail.com">
+            ubcgibblab@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <h3>We Are Located At</h3>
+
+        <p class="contact-address">
+          <strong>Robert H.N. Ho Research Centre</strong><br>
+          2635 Laurel Street<br>
+          Vancouver, BC V6H 3Z6<br>
+          Canada
+        </p>
+      </div>
+
+      <div>
+        <h3>Interested in Joining Us?</h3>
+
+        <p>
+          For prospective graduate students, postdoctoral fellows, research staff, and trainees interested in joining
+          the Gibb Lab, please visit our
+          <a href="{{ site.baseurl }}/join-us/">Join Us</a>
+          page for more information.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
