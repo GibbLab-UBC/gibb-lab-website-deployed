@@ -24,7 +24,8 @@ permalink: /team/
 <div class="pi-layout-card">
 
   <div class="pi-image-frame">
-    <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill">
+    <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill"
+      decoding="async">
 
     <div class="name-gradient-overlay">
       <h3 class="overlay-title-name">{{ member.title }}</h3>
@@ -119,7 +120,8 @@ permalink: /team/
   <div class="member-card">
 
     <div class="member-image-frame">
-      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill">
+      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill"
+        loading="lazy" decoding="async">
 
       <div class="name-gradient-overlay">
         <h3 class="overlay-title-name">{{ member.title }}</h3>
@@ -163,9 +165,9 @@ permalink: /team/
 <div class="unified-team-grid">
 
   {% assign alumni_members = site.posts
-    | where: "category", "alumni"
-    | sort: "leave_date"
-    | reverse
+  | where: "category", "alumni"
+  | sort: "leave_date"
+  | reverse
   %}
 
   {% for member in alumni_members %}
@@ -173,11 +175,8 @@ permalink: /team/
   <div class="member-card">
 
     <div class="member-image-frame">
-      <img
-        src="{{ site.baseurl }}/images/team/{{ member.image }}"
-        alt="{{ member.title }}"
-        class="image-fill"
-      >
+      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill"
+        loading="lazy" decoding="async">
 
       <div class="name-gradient-overlay">
         <h3 class="overlay-title-name">{{ member.title }}</h3>
