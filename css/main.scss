@@ -484,7 +484,7 @@ html[data-theme="light"] .theme-toggle-btn .moon-icon {
   background-color: var(--accent);
 }
 
-/* Principal Investigator */
+/* Principal Investigator */ 
 .pi-layout-card {
   background: var(--surface) !important;
   border: 1px solid var(--border-color);
@@ -513,6 +513,14 @@ html[data-theme="light"] .theme-toggle-btn .moon-icon {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.image-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .pi-content-side {
