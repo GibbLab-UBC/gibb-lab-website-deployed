@@ -695,6 +695,70 @@ html[data-theme="light"] .theme-toggle-btn .moon-icon {
 }
 
 /* ==========================================
+   Member Profile Page
+   ========================================== */
+
+.member-profile-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 24px 80px;
+}
+
+.member-profile-back {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.65;
+}
+
+.member-profile-back:hover {
+  opacity: 1;
+}
+
+.member-profile-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.member-profile-bio {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* photo */
+.member-profile-photo {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.member-profile-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  /* keep photo in color */
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* mobile */
+@media (max-width: 750px) {
+  .member-profile-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .member-profile-photo {
+    max-width: 420px;
+  }
+}
+/* ==========================================
    Two-Column Info Blocks (Research Page)
    ========================================== */
 .info-block {
