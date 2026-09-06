@@ -107,106 +107,94 @@ permalink: /team/
   {% endfor %}
 
 
-  <!-- ================= STUDENTS ================= -->
-  <!-- Ordered by join date: longest-standing members first -->
+<!-- ================= STUDENTS ================= -->
+<!-- longest-standing members first -->
 
-  {% assign student_members = site.posts
+{% assign student_members = site.posts
   | where: "category", "student"
   | sort: "join_date"
-  %}
+%}
 
-  {% for member in student_members %}
+{% for member in student_members %}
 
-  <div class="member-card">
+<a href="{{ member.url | relative_url }}" class="member-card member-card-clickable">
 
-    <div class="member-image-frame">
-      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill"
-        loading="lazy" decoding="async">
+  <div class="member-image-frame">
+    <img
+      src="{{ site.baseurl }}/images/team/{{ member.image }}"
+      alt="{{ member.title }}"
+      class="image-fill"
+      loading="lazy"
+      decoding="async">
 
-      <div class="name-gradient-overlay">
-        <h3 class="overlay-title-name">{{ member.title }}</h3>
-      </div>
+    <div class="name-gradient-overlay">
+      <h3 class="overlay-title-name">{{ member.title }}</h3>
     </div>
-
-    {% if member.role %}
-    <p class="role-subtitle member-role-label">
-      {{ member.role }}
-    </p>
-    {% endif %}
-
-    {% if member.joined %}
-    <p class="member-duration">
-      {{ member.joined }}
-    </p>
-    {% endif %}
-
-    {% if member.description %}
-    <div class="meta-label-left member-role-label">
-      Bio
-    </div>
-
-    <p class="detail-text-left member-bio-text">
-      {{ member.description }}
-    </p>
-    {% endif %}
-
   </div>
 
-  {% endfor %}
+  {% if member.role %}
+  <p class="role-subtitle member-role-label">
+    {{ member.role }}
+  </p>
+  {% endif %}
+
+  {% if member.joined %}
+  <p class="member-duration">
+    {{ member.joined }}
+  </p>
+  {% endif %}
+
+</a>
+
+{% endfor %}
 
 </div>
 
 
-<!-- ================= ALUMNI SECTION ================= -->
-<!-- Ordered by leave date: most recently departed members first -->
+<!-- ================= LAB ALUMNI ================= -->
+<!-- most recently departed members first -->
 
 <h2 class="section-title">Lab Alumni</h2>
 
 <div class="unified-team-grid">
 
-  {% assign alumni_members = site.posts
+{% assign alumni_members = site.posts
   | where: "category", "alumni"
   | sort: "leave_date"
   | reverse
-  %}
+%}
 
-  {% for member in alumni_members %}
+{% for member in alumni_members %}
 
-  <div class="member-card">
+<a href="{{ member.url | relative_url }}" class="member-card member-card-clickable">
 
-    <div class="member-image-frame">
-      <img src="{{ site.baseurl }}/images/team/{{ member.image }}" alt="{{ member.title }}" class="image-fill"
-        loading="lazy" decoding="async">
+  <div class="member-image-frame">
+    <img
+      src="{{ site.baseurl }}/images/team/{{ member.image }}"
+      alt="{{ member.title }}"
+      class="image-fill"
+      loading="lazy"
+      decoding="async">
 
-      <div class="name-gradient-overlay">
-        <h3 class="overlay-title-name">{{ member.title }}</h3>
-      </div>
+    <div class="name-gradient-overlay">
+      <h3 class="overlay-title-name">{{ member.title }}</h3>
     </div>
-
-    {% if member.role %}
-    <p class="role-subtitle member-role-label">
-      {{ member.role }}
-    </p>
-    {% endif %}
-
-    {% if member.joined %}
-    <p class="member-duration">
-      {{ member.joined }}
-    </p>
-    {% endif %}
-
-    {% if member.description %}
-    <div class="meta-label-left member-role-label">
-      Bio
-    </div>
-
-    <p class="detail-text-left member-bio-text">
-      {{ member.description }}
-    </p>
-    {% endif %}
-
   </div>
 
-  {% endfor %}
+  {% if member.role %}
+  <p class="role-subtitle member-role-label">
+    {{ member.role }}
+  </p>
+  {% endif %}
+
+  {% if member.joined %}
+  <p class="member-duration">
+    {{ member.joined }}
+  </p>
+  {% endif %}
+
+</a>
+
+{% endfor %}
 
 </div>
